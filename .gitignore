@@ -1,4 +1,6 @@
 gmon.out
 main
 main_gprof
+main_printf
 a.out
+*.lprof

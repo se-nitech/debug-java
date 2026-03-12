@@ -23,6 +23,14 @@
             ],
             "preLaunchTask": "C/C++: gcc build for debug",
             "miDebuggerPath": "/usr/bin/gdb"
+        },
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${fileDirname}"
         }
     ]
 }
