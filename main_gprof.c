@@ -1,34 +1,60 @@
 #include <stdio.h>
 
-int myfunc(int x, int y)
+#define SIZE 2026
+#define REPEAT 2000
+
+int sum_array(const int *a, int size)
 {
-    int z;
-    z = 2 * x - y;
-    return z;
+    int i, total = 0;
+    for (i = 0; i < size; i++)
+        total += a[i];
+    return total;
 }
 
-void myfunc_2(int *a)
+int average(const int *a, int size)
 {
-    int i;
-    for (i = 0; i < 5; i++)
-        myfunc(a[i], a[i + 1]);
+    return sum_array(a, size) / size;
 }
 
-void myfunc_3(int *a)
+int count_above_average(const int *a, int size)
 {
-    int i;
-    for (i = 0; i < 5; i++)
-        myfunc(a[i], a[i + 1]);
+    int i, count = 0;
+    for (i = 0; i < size; i++)
+        if (a[i] > average(a, size))
+            count++;
+    return count;
+}
+
+int count_above_average_fast(const int *a, int size)
+{
+    int i, count = 0;
+    int avg = average(a, size);
+    for (i = 0; i < size; i++)
+        if (a[i] > avg)
+            count++;
+    return count;
 }
 
 int main(void)
 {
-    int a[5] = {1, 2, 3, 4, 5};
-    int i;
-    for (i = 0; i < 100; i++)
-        myfunc_2(a);
-    for (i = 0; i < 300; i++)
-        myfunc_3(a);
+    int a[SIZE];
+    int i, total = 0;
+
+    for (i = 0; i < SIZE; i++)
+        a[i] = (i * 17) % 100; /* 規則的な値で配列を初期化 */
+
+    /* 平均より大きい要素の数を数える（遅いバージョン） */
+    for (i = 0; i < REPEAT; i++)
+        total += count_above_average(a, SIZE);
+
+    printf("total=%d\n", total / REPEAT);
+
+    /* 平均より大きい要素の数を数える（高速バージョン） */
+    total = 0;
+    for (i = 0; i < REPEAT; i++)
+        total += count_above_average_fast(a, SIZE);
+
+    printf("total=%d\n", total / REPEAT);
 
     return 0;
 }
