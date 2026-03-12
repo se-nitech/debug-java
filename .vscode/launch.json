@@ -31,6 +31,12 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "cwd": "${fileDirname}"
+        },
+        {
+            "name": "Java: Current File",
+            "type": "java",
+            "request": "launch",
+            "mainClass": "${file}"
         }
     ]
 }
