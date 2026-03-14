@@ -13,22 +13,18 @@
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
     //
-    "c-cpp-flylint.clang.enable": true,
-    "c-cpp-flylint.cppcheck.enable": true,
-    "c-cpp-flylint.lizard.enable": false,
-    "c-cpp-flylint.flawfinder.enable": false,
-    "c-cpp-flylint.flexelint.enable": false,
-    "c-cpp-flylint.run": "onType",
-    "c-cpp-flylint.language": "c",
-    "c-cpp-flylint.standard": [
-        "c11"
-    ],
-    "[c]": {
-        // "editor.defaultFormatter": "xaver.clang-format",
-        "editor.defaultFormatter": "ms-vscode.cpptools",
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java",
+        "editor.insertSpaces": true
     },
-    "[cpp]": {
-        // "editor.defaultFormatter": "xaver.clang-format",
-        "editor.defaultFormatter": "ms-vscode.cpptools",
-    },
+    "java.format.enabled": true,
+    "java.format.onType.enabled": true,
+    // Java convention formatting
+    "java.format.settings.url": ".vscode/java-formatter.xml",
+    "java.format.settings.profile": "JavaConventions",
+    // Google style formatting
+    // see https://code.visualstudio.com/docs/java/java-linting#_formatter
+    // "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+    // "java.format.settings.profile": "GoogleStyle",
+    //
 }
